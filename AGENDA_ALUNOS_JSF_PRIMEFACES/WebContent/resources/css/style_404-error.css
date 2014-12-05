@@ -1,0 +1,52 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.body {
+    background: #CCCCCC;
+}
+.container {
+    margin: 10px auto;
+    border-top: 1px solid orange;
+    border-bottom: 1px solid orange;
+}
+.msg1 {
+    background: #444444;
+    height: 60px;
+    margin: 0 auto;
+
+}
+.msg1 p {
+    font-family: Tahoma;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    padding: 14px;
+    text-align: center;
+}
+.msg2 {
+    background: #FFFFFF;
+    margin: 0 auto;
+
+}
+.msg2 p {
+    font-family: Tahoma;
+    font-size: 16px;
+    font-weight: normal;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+}
+.msg2 a {
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #4590c2;
+    text-decoration: none;
+}
+.msg2 a:hover {
+    color: orange;
+    text-decoration: none;
+}

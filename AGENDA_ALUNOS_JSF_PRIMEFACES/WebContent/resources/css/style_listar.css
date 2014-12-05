@@ -1,0 +1,138 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+*/
+
+
+.body {
+    background: #777777;
+}
+
+.tudo {
+    width: 60%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+    box-shadow: 0px 9px 4px -4px #222222;
+    -moz-box-shadow: 0px 9px 4px -4px #222222;
+    -webkit-box-shadow: 0px 9px 4px -4px #222222;
+
+    -moz-border-radius-topright: 6px;
+    -moz-border-radius-topleft: 6px; 
+    border-top-right-radius: 6px; 
+    border-top-left-radius: 6px; 
+    -webkit-border-top-right-radius: 6px; 
+    -webkit-border-top-left-radius: 6px; 
+}
+.meio {
+    background: #444444;
+}
+
+.meio h4 {
+    color: #CCCCCC;
+    padding-top: 10px;
+    margin-left: 14px;
+    font-family: Tahoma;
+    font-size: 20px;
+}
+
+/* .meio table {
+    margin-right: 14px;
+    margin-left: 14px;
+    margin-top: 10px;
+    background: #FFFFFF;
+} */
+/* .meio table tbody td:hover {
+    background: orange;
+} */
+/* .meio table th {
+    height: 30px;
+    cursor: default;
+    padding: 4px;
+    font-family: Tahoma;
+    font-size: 14px;
+    font-weight: normal;
+    background: #4590C2;
+    color: #FFFFFF;
+}
+.meio table td {
+    height: 30px;
+    background: #CCCCCC;
+    padding: 4px;
+    font-family: Tahoma;
+    font-size: 13px;
+    font-weight: normal;
+    color: #000000;
+} */
+/*
+.meio table td:hover{
+    background: orange;
+}*/
+.meio table td span {
+    color: red;
+}
+/*
+.home {
+    margin-left: 14px;
+    margin-top: 10px;
+}
+.home a {
+    text-decoration: none;
+    font-family: Tahoma;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+.home a:hover {
+    color: orange;
+}
+*/
+
+.p-datatable{
+	margin-bottom: 10px;
+}
+
+.paginator{	
+}
+.paginator-out{
+    margin: 0px;
+    font-family: Tahoma;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+.paginator-link{
+    margin: 2px;
+    text-decoration: none;
+    font-family: Tahoma;
+    font-size: 12px;
+    color: #4590C2;
+}
+.paginator-link:hover{
+    text-decoration: none;
+    font-family: Tahoma;
+    font-size: 12px;
+    color: #4590C2;
+}
+.paginator-link:visited{
+    text-decoration: none;
+    font-family: Tahoma;
+    font-size: 12px;
+    color: #4590C2;
+}
+
+.no-record{
+    
+    margin: 14px;
+    font-family: Tahoma;
+    font-size: 14px;
+    color: #000000;
+    
+}
+
+.listar-tools{
+	margin-top:10px;
+}

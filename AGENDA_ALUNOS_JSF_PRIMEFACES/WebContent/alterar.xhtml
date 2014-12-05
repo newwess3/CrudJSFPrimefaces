@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <f:view locale="#{localeController.currentLocale}">
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta name="description" content="Java Server Faces JSF"/>
+            <link rel="shortcut icon" type="image/ico" href="img/favicon/favicon_v2.png"/>
+            <!-- <link rel="stylesheet" type="text/css" href="css/style_index.css" />
+            <link rel="stylesheet" type="text/css" href="css/style_alterar.css" />
+            <link rel="stylesheet" type="text/css" href="css/style_cabecalho.css" />
+            <link rel="stylesheet" type="text/css" href="css/style_rodape.css" /> -->
+            
+            <h:outputStylesheet library="css" name="style_index.css" />		
+			<h:outputStylesheet library="css" name="style_alterar.css" />
+			<h:outputStylesheet library="css" name="style_cabecalho.css" />
+			<h:outputStylesheet library="css" name="style_rodape.css" />
+			<h:outputScript library="javascript" name="agenda-script.js" />
+
+            <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" /> <!-- STYLE -->       
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script> <!-- BASE MIN -->
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script> <!-- UI BASE MIN -->       
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/i18n/jquery-ui-i18n.min.js" type="text/javascript"></script> <!--CONTEM TODAS AS REGIOES -->
+
+            <script type="text/javascript" src="js/agenda-script.js"></script>
+
+            <title><h:outputText value="#{mLocale.title} #{mLocale.pageEditar}"/></title>
+        </h:head>    
+
+        <h:body class="body">
+
+
+            <div class="tudo">
+
+                <ui:include src="cabecalho.xhtml" />
+                
+                <div class="meio">
+                    <h:form>
+                    	<p:growl id="growl" life="2000" />
+                    	
+                    	<p:panel id="panel" header="Alterar" footer="" style="margin-bottom:10px">
+						<h:panelGrid columns="2" >
+							<h:outputText value="ID" />
+							<p:inputText value="#{alunoController.aluno.id}" required="true" disabled="true"  />
+
+							<h:outputText value="#{mLocale.name}" />
+							<p:inputText id="m_nome" value="#{alunoController.aluno.nome}" />
+
+							<h:outputText value="#{mLocale.team}" />
+							<p:inputText id="m_turma" value="#{alunoController.aluno.turma}" />
+
+							<h:outputText value="#{mLocale.email}" />
+							<p:inputText id="m_email" value="#{alunoController.aluno.email}" />
+
+							<h:outputText value="#{mLocale.date}" />
+							<p:inputText value="#{alunoController.aluno.dataCadastro}" />
+							<!-- <p:calendar id="m_dataCadastro" value="#{alunoController.aluno.dataCadastro}" mode="popup" pattern="dd/MM/yyyy" size="17"
+                                	required="true"
+                                	requiredMessage="Date Required">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </p:calendar> -->
+						</h:panelGrid>
+						<div style="margin-top:10px;">
+							<p:commandButton  icon="ui-icon-disk" value="Salvar" id="ajax" update="growl" action="#{alunoController.editar}"/>
+						</div>
+						</p:panel>
+                    </h:form>
+                    <h:form>
+                        <div class="home">
+                            <h:commandLink action="main" value="#{mLocale.linkHome}"/>&nbsp;&nbsp;
+                            <h:commandLink action="listar" value="#{mLocale.linkListar}"/>&nbsp;&nbsp;
+                            <!-- <h:commandLink action="cadastrar" value="#{mLocale.linkCadastrar}"/>&nbsp;&nbsp; -->
+                        </div>
+                    </h:form>
+                </div>
+
+                <ui:include src="rodape.xhtml" />
+                </div>
+
+
+            </h:body>
+        </f:view>
+</html>

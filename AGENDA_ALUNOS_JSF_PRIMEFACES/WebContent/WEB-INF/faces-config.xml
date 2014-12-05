@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ <converter>
+  <converter-for-class>com.newwess.agendaalunos.entities.Aluno</converter-for-class>
+  <converter-class>com.newwess.agendaalunos.converter.AlunoConverter</converter-class>
+ </converter>
+ 
+ <managed-bean>
+  <managed-bean-name>mainController</managed-bean-name>
+  <managed-bean-class>com.newwess.agendaalunos.controller.MainController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>alunoJpa</managed-bean-name>
+  <managed-bean-class>com.newwess.agendaalunos.jpa.AlunoJpa</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>alunoBean</managed-bean-name>
+  <managed-bean-class>com.newwess.agendaalunos.jpa.AlunoBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>alunoController</managed-bean-name>
+  <managed-bean-class>com.newwess.agendaalunos.controller.AlunoController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ <!-- Bean Controler de localidade -->
+ <managed-bean>
+  <managed-bean-name>localeController</managed-bean-name>
+  <managed-bean-class>com.newwess.agendaalunos.controller.LocaleController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ <!-- Chamada as paginas jsp -->
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>main</from-outcome>
+   <to-view-id>/index.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>cadastrar</from-outcome>
+   <to-view-id>/cadastrar.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>alterar</from-outcome>
+   <to-view-id>/alterar.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>listar</from-outcome>
+   <to-view-id>/listar.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <application>
+  <message-bundle>resources.application</message-bundle>
+  <resource-bundle>  
+  	<base-name>com.newwess.agendaalunos.locale.messages</base-name>  
+  	<var>mLocale</var>  
+  </resource-bundle>
+  <locale-config>
+   <default-locale>en</default-locale>
+   <supported-locale>pt_BR</supported-locale>
+   <supported-locale>en_US</supported-locale>
+   <supported-locale>es_CL</supported-locale>
+  </locale-config>
+ </application>
+ 
+</faces-config>

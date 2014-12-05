@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+    <f:view> 
+    
+<div class="base-locale">
+    <h:form>
+        <h:commandLink action="#{localeController.esClLocale}" styleClass="locale-link">
+            <h:graphicImage  library="img/pais" name="Espanya-Spain-32.png" alt="" title="Spain"/>
+        </h:commandLink>
+        <h:commandLink action="#{localeController.ptBrLocale}" styleClass="locale-link">
+            <h:graphicImage library="img/pais" name="Brasil-32.png" alt="" title="Brasil"/>
+        </h:commandLink>
+        <h:commandLink action="#{localeController.enUsLocale}" styleClass="locale-link">
+            <h:graphicImage library="img/pais" name="USA-32.png" alt="" title="USA"/>
+        </h:commandLink>
+      
+    </h:form>
+</div>
+<div class="cabecalho">
+	<div class="container-logo">
+    <!-- <h:graphicImage 
+        value="img/logo/logo7_28.png"
+        alt="Newwess"
+        title="Newwess" height="56px"/> -->
+        
+    <h1>CRUD - JSF PRIMEFACES</h1>
+
+	</div>
+    
+</div>
+
+</f:view>
+
+</html>
+
+

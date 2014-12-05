@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+
+    
+    	<f:loadBundle basename="resources.application" var="msg"/>
+
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta name="description" content="Java Server Faces JSF"/>
+            <link rel="shortcut icon" type="image/ico" href="img/favicon/favicon_v2.png"/>
+            
+            <h:outputStylesheet library="css" name="style_index.css" />	
+			<h:outputStylesheet library="css" name="style_cabecalho.css" />
+			<h:outputStylesheet library="css" name="style_rodape.css" />
+			<h:outputScript library="javascript" name="jquery-1.4.3.js" />
+			
+            <title><h:outputText value="#{mLocale.title} #{mLocale.pagePrincipal}"/></title>
+        </h:head>
+        <h:body class="body">
+            <f:view locale="#{localeController.currentLocale}"> 
+
+            <div class="tudo"> 
+				<ui:include src="cabecalho.xhtml" />
+                <div class="meio">
+
+				<div class="box-video">
+					<p:lightBox id="lighbox2">
+						<p:commandLink value="Primefaces" />
+
+						<f:facet name="inline">
+							<p:media value="http://vimeo.com/moogaloop.swf?clip_id=87780794" width="600" height="325" player="flash" />
+						</f:facet>
+					</p:lightBox>
+					
+					<h:form>
+    					<p:growl id="messages" life="2000"></p:growl>
+    					
+    					<p:commandLink value="OK" action="listar" update="messages">
+    						<p:confirm header="Confirmation" message="Confirm Dialog?" icon="ui-icon-alert" />
+    					</p:commandLink>
+    					<p:confirmDialog global="true">
+        					<p:commandButton value="Listar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+        					<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+    					</p:confirmDialog>
+    					
+					</h:form>
+				</div>
+
+				<div class="home">
+                        <h:form>
+                            <h:commandLink action="listar" value="#{mLocale.linkListar}" />&nbsp;&nbsp;
+                            <!-- <h:commandLink action="cadastrar" value="#{mLocale.linkCadastrar}" />&nbsp;&nbsp; -->
+                        </h:form>
+                    </div>
+                </div>
+                <ui:include src="rodape.xhtml" />
+                </div>
+    			</f:view>
+            </h:body>
+
+</html>
+
+

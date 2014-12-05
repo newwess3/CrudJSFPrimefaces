@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+
+	
+    <!-- <f:view> -->
+    	
+ 		
+        <h:form>
+            <p:dataTable id="lazyDataTable"  var="aluno" value="#{alunoController.allAlunos}"             
+            	paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+            	paginator="true" rows="10"
+            	rowKey="#{aluno.id}"
+            	selection="#{alunoController.aluno}"
+            	selectionMode="single"
+            	rowsPerPageTemplate="5,10,15,20" >
+ 
+                <p:ajax event="rowSelect"  update=":playerDialogForm"  />
+ 
+                <p:column headerText="ID">
+                    <h:outputText value="#{aluno.id}" />
+                </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{aluno.nome}" />
+                </p:column>
+                <p:column headerText="Turma">
+                    <h:outputText value="#{aluno.turma}" />
+                </p:column>
+                <p:column headerText="Email">
+                    <h:outputText value="#{aluno.email}" />
+                </p:column>
+                <p:column headerText="Data">
+                    <h:outputText value="#{aluno.dataCadastro}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+        
+        <p:dialog id="ddialog" widgetVar="playerDetails" header="Player" modal="false">
+            <h:form id="playerDialogForm">
+                <h:panelGrid columns="2">
+                    <h:outputText value="Id: " />
+                    <h:outputText value="#{alunoController.aluno.id}" />
+                    <h:outputText value="Name: " />
+                    <h:outputText value="#{alunoController.aluno.nome}" />
+                    <h:outputText value="Team: " />
+                    <h:outputText value="#{alunoController.aluno.turma}" />
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    <!-- </f:view> -->
+</h:body>
+</html>

@@ -1,0 +1,24 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+*/
+.rodape {
+    background: #A3BC3A;
+    height: 34px;
+
+}
+
+.ct{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.ct p {
+    padding: 10px;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #FFFFFF;
+}

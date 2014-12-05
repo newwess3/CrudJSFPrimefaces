@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<f:loadBundle basename="resources.application" var="msg" />
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="description" content="Java Server Faces JSF" />
+		<link rel="shortcut icon" type="image/ico" href="img/favicon/favicon_v2.png" />
+		
+		<h:outputStylesheet library="css" name="style_index.css" />		
+		<h:outputStylesheet library="css" name="style_listar.css" />
+		<h:outputStylesheet library="css" name="style_cabecalho.css" />
+		<h:outputStylesheet library="css" name="style_rodape.css" />
+		<h:outputScript library="javascript" name="jquery-1.4.3.js" />
+		<title><h:outputText value="#{mLocale.title} #{mLocale.pageListar}" /></title>
+	</h:head>
+
+	<h:body class="body">
+	<f:view locale="#{localeController.currentLocale}">
+
+		<div class="tudo">
+
+			<ui:include src="cabecalho.xhtml" />
+			<div class="meio">
+				<p:panel id="basic" header="Registros" footer="" style="margin-bottom:10px">
+				<div class="p-datatable">
+					<h:form id="form">
+						<p:growl id="growl" life="2000" showDetail="true" />
+						<p:dataTable  
+							var="aluno"
+							value="#{alunoController.allAlunos}"
+							paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							paginator="true" rows="10" rowKey="#{aluno.id}"
+							selection="#{alunoController.aluno}" selectionMode="single"
+							rowsPerPageTemplate="5,10,15,20">
+							
+							<!-- <p:ajax event="rowSelect" update="createButton viewButton editButton deleteButton"/> -->
+							<p:ajax event="rowSelect" update=":form:viewDetail"/>
+
+							<p:column headerText="ID">
+								<h:outputText value="#{aluno.id}" />
+							</p:column>
+							<p:column headerText="Nome">
+								<h:outputText value="#{aluno.nome}" />
+							</p:column>
+							<p:column headerText="Turma">
+								<h:outputText value="#{aluno.turma}" />
+							</p:column>
+							<p:column headerText="Email">
+								<h:outputText value="#{aluno.email}" />
+							</p:column>
+							<p:column headerText="Data">
+								<h:outputText value="#{aluno.dataCadastro}" />
+							</p:column>
+							<p:column headerText="">
+								<!-- <h:form>
+    								<p:growl id="messages" showDetail="true"/>
+
+								</h:form> -->
+								<div class="ui-grid ui-grid-responsive">
+								<div class="ui-grid-row">
+									<div class="ui-grid-col-4">
+										<p:commandButton update=":form:viewDetail" oncomplete="PF('viewDialog').show()"  icon="ui-icon-person">									
+            								<f:setPropertyActionListener value="#{aluno}" target="#{alunoController.aluno}" />
+        								</p:commandButton>
+        							</div>
+        							<div class="ui-grid-col-4">	        						
+        								<p:commandButton action="alterar"  icon="ui-icon-gear">
+            								<f:setPropertyActionListener value="#{aluno}" target="#{alunoController.aluno}" />
+        								</p:commandButton>   
+        							</div>
+        							<div class="ui-grid-col-4">   						
+        								<p:commandButton update=":form:growl" oncomplete="PF('deleteDialog').show()" icon="ui-icon-trash" action="#{alunoController.deleteSelected}">
+            								<f:setPropertyActionListener value="#{aluno}" target="#{alunoController.aluno}" />
+            								<p:confirm header="Confirmation" message="Realmente Apagar?" icon="ui-icon-alert" />
+        								</p:commandButton>
+        							</div>  
+        						</div>
+        						</div>
+							</p:column>
+						</p:dataTable>
+
+						<!-- DIALOG VIEW -->
+						<p:dialog header="Aluno Info" widgetVar="viewDialog" modal="true" showEffect="blind" hideEffect="blind" resizable="false">
+							<p:outputPanel id="viewDetail" style="text-align:center;">
+								<p:panelGrid columns="2"
+									rendered="#{not empty alunoController.aluno}"
+									columnClasses="label,value">
+									<f:facet name="header">
+									</f:facet>
+
+									<h:outputText value="Id:" />
+									<h:outputText value="#{alunoController.aluno.id}" />
+
+									<h:outputText value="Nome" />
+									<h:outputText value="#{alunoController.aluno.nome}" />
+
+									<h:outputText value="Turma:" />
+									<h:outputText value="#{alunoController.aluno.turma}" />
+
+									<h:outputText value="Email" />
+									<h:outputText value="#{alunoController.aluno.email}" />
+									
+									<h:outputText value="Data" />
+									<h:outputText value="#{alunoController.aluno.dataCadastro}" />
+								</p:panelGrid>
+							</p:outputPanel>
+						</p:dialog>
+						
+						<!-- DIALOG DELETE -->
+						<p:confirmDialog header="Confirmacao" widgetVar="deleteDialog" modal="true" global="true" showEffect="blind" hideEffect="puff">
+							
+							<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+        					<p:commandButton value="Nao" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+        				
+						</p:confirmDialog>
+					</h:form>
+				</div>
+				</p:panel>
+
+				<!-- MODELO DE PAGINACAO SEM O P:DATATABLE -->
+				<!-- <div class="paginator">
+					<h:form>
+						<h:outputText styleClass="paginator-out"
+							value="#{alunoController.paginatorLabel()}"
+							rendered="#{alunoController.paginatorLabelRendered()}" />&nbsp;
+                        <h:commandLink styleClass="paginator-link"
+							action="#{alunoController.firstPage()}" value="[primeira]"
+							rendered="#{alunoController.firstPageRendered()}" />&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h:commandLink styleClass="paginator-link"
+							action="#{alunoController.prevPage()}" value="...anterior "
+							rendered="#{alunoController.prevPageRendered()}" />&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h:commandLink styleClass="paginator-link"
+							action="#{alunoController.nextPage()}" value="proximo..."
+							rendered="#{alunoController.nextPageRendered()}" />&nbsp;
+                        <h:commandLink styleClass="paginator-link"
+							action="#{alunoController.lastPage()}" value="[ultima]"
+							rendered="#{alunoController.lastPageRendered()}" />&nbsp;
+					</h:form>
+				</div> -->
+				
+				<div class="listar-tools">
+					<h:form>
+						<p:growl id="messages" life="2000"></p:growl>
+						
+						<p:commandButton id="createButton" value="Novo" type="submit"  styleClass="ui-confirmdialog-yes" icon="ui-icon-check" 
+						action="#{alunoController.criarNovo}"/>
+						<!-- <p:commandButton value="Editar" id="editButton" icon="ui-icon-plus" action="alterar" /> -->
+						<!-- <p:commandButton value="Apagar" id="deleteButton" icon="ui-icon-plus" action="#{alunoController.deleteSelected}" >
+							<p:confirm header="Confirmation" message="Realmente Apagar?" icon="ui-icon-alert" />
+						</p:commandButton> -->
+						
+						<!-- DIALOG DELETE -->
+						<!-- <p:confirmDialog global="true">
+        					<p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+        					<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+    					</p:confirmDialog> -->
+						
+					</h:form>
+				</div>
+				
+				
+
+				
+					<div class="home">
+						<h:form>
+							<h:commandLink action="main" value="#{mLocale.linkHome}" />	&nbsp;&nbsp;
+							<!-- <h:commandLink action="cadastrar" value="#{mLocale.linkCadastrar}" /> &nbsp;&nbsp; -->
+						</h:form>
+					</div>
+				
+			</div>
+
+			<ui:include src="rodape.xhtml" />
+		</div>
+		</f:view>
+	</h:body>
+</html>

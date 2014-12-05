@@ -1,0 +1,109 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+*/
+
+/*
+.body {
+    background: #777777;
+}
+*/
+.tudo {
+    width: 60%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+    box-shadow: 0px 9px 4px -4px #222222;
+    -moz-box-shadow: 0px 9px 4px -4px #222222;
+    -webkit-box-shadow: 0px 9px 4px -4px #222222;
+
+    -moz-border-radius-topright: 6px; 
+    -moz-border-radius-topleft: 6px; 
+    border-top-right-radius: 6px; 
+    border-top-left-radius: 6px; 
+    -webkit-border-top-right-radius: 6px; 
+    -webkit-border-top-left-radius: 6px; 
+}
+
+/*
+.meio h4 {
+    color: #CCCCCC;
+    padding-top: 10px;
+    margin-left: 14px;
+    font-family: Tahoma;
+    font-size: 20px;
+}
+
+.meio {
+    background: #444444;
+}
+*/
+/* .meio table {
+    margin-top: 10px;
+    margin-left: 14px;
+} */
+.meio table th {
+    cursor: default;
+    height: 20px;
+    padding: 4px;
+    text-align: left;
+    background: #4590C2;
+    font: 13px Tahoma;
+    color: #FFFFFF;
+}
+.meio table td,input {
+    background: #FFFFFF;
+    height: 20px;
+    padding: 4px;
+    text-align: left;
+    width: 300px;
+}
+
+.submit {
+    border: 1px solid #FFFFFF;
+    float: right;
+    background: #4590C2;
+    width: 60px;
+    height: 26px;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+.submit:hover {
+    opacity: 1;
+}
+/*
+.home {
+    margin-left: 14px;
+    margin-top: 10px;
+}
+.home a {
+    text-decoration: none;
+    font-family: Tahoma;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+.home a:hover {
+    color: orange;
+}
+*/
+.span-cad {
+    display: none;
+    font-family: Tahoma;
+    font-size: 12px;
+    background: red;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFf;
+    padding: 6px;
+
+    box-shadow: 0px 9px 4px -4px #222222;
+    -moz-box-shadow: 0px 9px 4px -4px #111111;
+    -webkit-box-shadow: 0px 9px 4px -4px #222222;
+}
+
+
+
